@@ -1,0 +1,41 @@
+create table tab1(id int,name varchar(30),address varchar(20));
+
+insert into tab1 values(21,'pro','nzb');
+
+insert into tab1 values(25,'liz','sdpt');
+
+insert into tab1 values(32,'roz','jgl');
+
+create table tab2(id int,name varchar(20),address varchar(20));
+
+insert  into tab2 values(12,'john','germany');
+
+insert into tab2 values(45,'pal','france');
+
+insert into tab2 values(63,'sam','japan');
+
+desc tab1;
+
+desc tab2;
+
+select name from tab1
+
+union
+
+select name from tab2
+
+order by name;
+
+select name from tab1
+
+union all
+
+select name from tab2
+
+order by name;
+
+alter table tab1
+
+add email varchar(20);
+
+desc tab1;

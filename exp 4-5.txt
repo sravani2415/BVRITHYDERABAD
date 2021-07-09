@@ -1,0 +1,73 @@
+create table sailors(SID numeric(3) primary key,SNAME varchar(30),RATING numeric(3),AGE numeric(4,2),check(RATING>=1 and RATING<=10));
+
+desc sailors;
+
+create table boats(BID numeric(3) primary key,BNAME varchar(20),BCOLOR varchar(20));
+
+desc boats;
+
+create table reserves(SID numeric(3),BID numeric(3),DAY DATE,primary key(SID,BID,DAY),foreign key(SID) references sailors(SID),foreign key(BID) references boats(BID));
+
+desc reserves;
+
+UPDATE sailors SET SNAME = 'Rasagnaya',RATING = 9,AGE = 19 WHERE SID = 9;
+UPDATE sailors SET SNAME = 'lavanya' WHERE SID = 5;
+
+DELETE FROM sailors WHERE SID = 3;
+
+show tables;
+
+show full tables;
+
+insert into sailors values(1,'john',9,40);
+
+insert into sailors values(2,'kumar',10,25);
+
+insert into sailors values(3,'kiran',8,34);
+
+insert into sailors values(4,'akhil',7,52);
+
+insert into sailors values(5,'apple',9,45);
+
+insert into sailors values(6,'mahesh',6,49)
+;
+insert into sailors values(7,'lemon',9,31);
+
+insert into sailors values(8,'aryan',8,36);
+
+insert into sailors values(9,'mohan',8,45);
+
+insert into sailors values(10,'rashmitha',6,63);
+
+select * from sailors where SNAME not like 'a%';
+select * from sailors where SNAME not like "a%a%" and SNAME like "%a%";
+
+select * from sailors where SNAME like '%a%' or SNAME like '%e%' or SNAME like '%i%';
+insert into boats values(2,'pro','red');
+
+insert into boats values(3,'leaf','green');
+
+insert into boats values(4,'jasmine','white');
+
+insert into boats values(5,4,'2021-05-30');
+
+insert into boats values(6,4,'2021-06-01');
+
+insert into boats values(7,3,'2021-06-05');
+
+alter table reserves rename column day to rday;
+
+select * from sailors;
+
+select SID from sailors where RATING>=8;
+
+select * from boats;
+
+select BID from boats where BCOLOR='red';
+
+select s.sname,s.age from sailors s where s.age=(select min(s2.age) from sailors s2);
+
+
+
+
+

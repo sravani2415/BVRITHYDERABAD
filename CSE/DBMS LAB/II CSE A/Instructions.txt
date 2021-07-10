@@ -1,1 +1,4 @@
-
+All students create folder with your roll number.
+Upload 12 experiments inside the folder.
+All students inchargers check their 12 experiments.
+If anything not upto the mark then inform me. 

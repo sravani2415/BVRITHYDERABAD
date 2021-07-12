@@ -36,7 +36,7 @@ for(int i=0;i<p;i++)
 int flag = 0, pr = 0;
 while(flag < p)
 {
-	if((avA >= ndA[pr]) && (avB >= ndB[pr]) && (avB >= ndB[pr]) && ((ndA[pr] != 0) || (ndB[pr] != 0) || (ndC[pr] != 0)))
+	if((avA >= ndA[pr]) && (avB >= ndB[pr]) && (avC >= ndC[pr]) && ((ndA[pr] != 0) || (ndB[pr] != 0) || (ndC[pr] != 0)))
 	{
 		flag = flag + 1;
 		avA = avA + allocA[pr];

@@ -1,0 +1,2 @@
+Write a Java program that handles all mouse events and shows the event name at the centre of the
+window when a mouse event is fired (Use Adapter classes).

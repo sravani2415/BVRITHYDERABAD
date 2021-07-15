@@ -1,0 +1,63 @@
+#include<stdio.h>
+
+void swap(int *x , int *y){
+	int temp = *x;
+	*x = *y;
+	*y = temp;
+}
+void bubble(int arr[], int n){
+	int i, j ;
+	for(i = 0 ; i<n-1 ; i++){
+		for(j = 0 ; j<n-i-1 ; j++){
+			if(arr[j] > arr[j+1]){
+				swap(&arr[j+1], &arr[j]);
+			}
+		}
+	}
+}
+void sjf(int arrival[] , int burst[] , int n){
+	bubble(burst ,n);
+	int wait[n];
+	int turn[n];
+	int avgwait =  0 ;
+	int avgturn = 0 ;
+	wait[0] = 0;
+	for(int i = 1 ; i<n ; i++ ){
+		wait[i] = wait[i-1] + burst[i-1];
+		wait[i] -= arrival[i];
+		avgwait += wait[i];
+	}
+	for(int i = 0 ; i<n ; i++){
+		turn[i] = wait[i] + burst[i];
+		avgturn += turn[i];
+	}
+	printf("Process\t  burst time\t wait time\t turn around time\n");
+	for(int i = 0 ;i<n ;i++)
+		printf("%d\t\t %d\t\t %d\t %d\n" , i+1 , burst[i], wait[i] , turn[i]);
+	printf("Average wait time is : %d\n" , avgwait / n);
+	printf("Average turn around time is : %d" , avgturn / n);
+	
+	
+}
+int main(){
+	
+	int n ;
+	printf("enter the number of process: ");
+	scanf("%d" , &n);
+	int arrival[n];
+	int burst[n];
+	for(int i = 0 ; i<n ;i++){
+		printf("enter the arrival time for p%d: ", i+1);
+		scanf("%d" , &arrival[i]);
+		printf("enter the burst time for p%d: " , i+1);
+		scanf("%d" , &burst[i]);
+		
+		
+	}
+	sjf(arrival , burst , n);
+	
+	
+}
+
+
+

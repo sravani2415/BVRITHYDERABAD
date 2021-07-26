@@ -10,7 +10,7 @@ public class factorial extends Applet implements ActionListener
     TextField t1, t2;
     Label l1, l2;
 
-    public Factorial_3()
+    public factorial()
     {
         l1 = new Label("Num");
         t1 = new TextField(6);
